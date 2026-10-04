@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гудаури & Курорты Грузии | Инструкторы по лыжам и сноуборду</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-white">
 
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="font-extrabold text-xl tracking-tight text-white flex items-center gap-2">
+                <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span>
+                Gudauri Pro
+            </a>
+
+            <div class="flex items-center gap-4 sm:gap-6">
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-full p-1 text-xs font-semibold">
+                    <button onclick="setLanguage('ru')" id="lang-ru" class="px-3 py-1.5 rounded-full transition-all bg-emerald-500 text-white">RU</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-3 py-1.5 rounded-full transition-all text-slate-400 hover:text-white">EN</button>
+                    <button onclick="setLanguage('pl')" id="lang-pl" class="px-3 py-1.5 rounded-full transition-all text-slate-400 hover:text-white">PL</button>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#" onclick="openWhatsApp(event)" class="hidden sm:inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-emerald-900/20">
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?q=80&w=1920&auto=format&fit=crop" alt="Gudauri Mountains" class="w-full h-full object-cover object-center opacity-40 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center py-20">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-emerald-400 text-xs font-semibold mb-6 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span data-i18n="badge">Гудаури и курорты Грузии · Сезон 2026</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight" data-i18n="hero_title">
+                Обучение катанию на лыжах и сноуборде
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-normal" data-i18n="hero_subtitle">
+                Команда сертифицированных инструкторов. Индивидуальный подход для взрослых и детей от 6 лет. Русский / English / Polski.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" onclick="openWhatsApp(event)" class="w-full sm:w-auto inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-2xl text-base transition-all shadow-xl shadow-emerald-900/30 transform hover:-translate-y-0.5">
+                    <span data-i18n="cta_button">Забронировать в WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING / SERVICES SECTION -->
+    <section class="py-24 bg-slate-900/50 border-t border-slate-900" id="pricing">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4" data-i18n="pricing_title">Наши тарифы и формат</h2>
+                <p class="text-slate-400 text-base" data-i18n="pricing_subtitle">Максимальное внимание инструктора и быстрый прогресс на склоне</p>
+            </div>
+
+            <!-- Price Card -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-emerald-500/10 text-emerald-400 text-xs font-bold px-4 py-2 rounded-bl-2xl border-l border-b border-emerald-500/20" data-i18n="card_badge">
+                    Хит сезона
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-800">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="card_title">Горные лыжи или Сноуборд</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="card_desc">Полноценный день продуктивного катания с профессионалом</p>
+                    </div>
+
+                    <!-- Currency Switcher -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-slate-950 p-1.5 rounded-2xl border border-slate-800">
+                        <button onclick="setCurrency('GEL')" id="cur-GEL" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white">GEL</button>
+                        <button onclick="setCurrency('PLN')" id="cur-PLN" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">PLN</button>
+                        <button onclick="setCurrency('RUB')" id="cur-RUB" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">РУБ</button>
+                        <button onclick="setCurrency('USD')" id="cur-USD" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">USD</button>
+                    </div>
+                </div>
+
+                <!-- Price Display -->
+                <div class="mb-8 text-left">
+                    <div class="text-4xl sm:text-6xl font-extrabold text-white" id="price-display">1000 <span class="text-emerald-400 text-2xl font-semibold" id="currency-display">GEL</span></div>
+                    <div class="text-xs text-slate-500 mt-1" data-i18n="price_sub">за весь день работы инструктора</div>
+                </div>
+
+                <!-- Location Selector -->
+                <div class="mb-8 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" data-i18n="loc_label">Выберите локацию / курорт:</label>
+                    <select id="location-select" class="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-emerald-500 transition-all font-medium">
+                        <option value="Гудаури (основная база)">⛷️ Гудаури (Основная база)</option>
+                        <option value="Тетнулди">🏔️ Тетнулди (Сванетия)</option>
+                        <option value="Годердзи">❄️ Годердзи (Аджария)</option>
+                        <option value="Казбеги">⛰️ Казбеги (Степанцминда)</option>
+                        <option value="Мэстия">🏂 Мэстия (Сванетия)</option>
+                    </select>
+                </div>
+
+                <!-- Main Details List -->
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-sm text-slate-300">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span data-i18n="f1">Мини-группа до 2 человек</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span data-i18n="f2">С 9:30 до 16:30 (с перерывом 1 час)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span data-i18n="f3">Для взрослых и детей от 6 лет</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span data-i18n="f4">Обучение на русском, английском и польском</span>
+                    </li>
+                </ul>
+
+                <!-- What's Included & Add-ons Box -->
+                <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5 mb-8 space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2" data-i18n="inc_title">Что входит в стоимость:</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="inc_desc">
+                            Только работа профессионального сертифицированного инструктора на полный день, персональное сопровождение и фото/видео во время занятий. Базиция инструктора — Гудаури, но по предварительному запросу возможна организация поездки и обучение в других локациях: Тетнулди, Годердзи, Казбеги или Мэстия.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800/60 pt-3">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400/90 mb-1" data-i18n="eq_title">Дополнительно (по запросу):</h4>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="eq_desc">
+                            В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить спортивную страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="#" onclick="openWhatsApp(event)" class="w-full flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-emerald-900/20">
+                    <span data-i18n="card_btn">Забронировать занятие</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTS -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <div class="font-extrabold text-lg text-white mb-1">Gudauri Pro Instructors</div>
+                <div class="text-xs text-slate-500" data-i18n="footer_rights">© 2026 Все права защищены. Гудаури и курорты Грузии.</div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm text-slate-400">
+                <a href="https://wa.me/48515979713" class="hover:text-white transition-colors">WhatsApp: +48 515 979 713</a>
+                <a href="mailto:georgiapeaks4@gmail.com" class="hover:text-white transition-colors">georgiapeaks4@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let currentLang = 'ru';
+        let currentCurrency = 'GEL';
+
+        const prices = {
+            GEL: "1000 GEL",
+            PLN: "1500 PLN",
+            RUB: "32000 руб",
+            USD: "390 USD"
+        };
+
+        const translations = {
+            ru: {
+                badge: "Гудаури и курорты Грузии · Сезон 2026",
+                hero_title: "Обучение катанию на лыжах и сноуборде",
+                hero_subtitle: "Команда сертифицированных инструкторов. Индивидуальный подход для взрослых и детей от 6 лет. Русский / English / Polski.",
+                cta_button: "Забронировать в WhatsApp",
+                pricing_title: "Наши тарифы и формат",
+                pricing_subtitle: "Максимальное внимание инструктора и быстрый прогресс на склоне",
+                card_badge: "Хит сезона",
+                card_title: "Горные лыжи или Сноуборд",
+                card_desc: "Полноценный день продуктивного катания с профессионалом",
+                price_sub: "за весь день работы инструктора",
+                loc_label: "Выберите локацию / курорт:",
+                f1: "Мини-группа до 2 человек",
+                f2: "С 9:30 до 16:30 (с перерывом 1 час)",
+                f3: "Для взрослых и детей от 6 лет",
+                f4: "Обучение на русском, английском и польском",
+                inc_title: "Что входит в стоимость:",
+                inc_desc: "Только работа профессионального сертифицированного инструктора на полный день, персональное сопровождение и фото/видео во время занятий. Базиция инструктора — Гудаури, но по предварительному запросу возможна организация поездки и обучение в других локациях: Тетнулди, Годердзи, Казбеги или Мэстия.",
+                eq_title: "Дополнительно (по запросу):",
+                eq_desc: "В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить спортивную страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.",
+                card_btn: "Забронировать занятие",
+                footer_rights: "© 2026 Все права защищены. Гудаури и курорты Грузии."
+            },
+            en: {
+                badge: "Gudauri & Resorts of Georgia · Season 2026",
+                hero_title: "Ski and Snowboard Lessons in Georgia",
+                hero_subtitle: "Certified instructors team. Individual approach for adults and kids from 6 years old. Russian / English / Polish.",
+                cta_button: "Book via WhatsApp",
+                pricing_title: "Pricing & Format",
+                pricing_subtitle: "Maximum instructor attention and fast progress on the slopes",
+                card_badge: "Best Choice",
+                card_title: "Skiing or Snowboarding",
+                card_desc: "A full day of productive riding with a professional",
+                price_sub: "per full day of instructor work",
+                loc_label: "Select location / resort:",
+                f1: "Small group up to 2 people",
+                f2: "From 9:30 to 16:30 (incl. 1 hour break)",
+                f3: "For adults and kids from 6 years old",
+                f4: "Lessons in Russian, English and Polish",
+                inc_title: "What's included:",
+                inc_desc: "Only the service of a professional certified instructor for the full day, personal guidance, and photo/video during the lessons. Our main base is Gudauri, but upon request, trips and lessons can be arranged in other locations: Tetnuldi, Goderdzi, Kazbegi, or Mestia.",
+                eq_title: "Extras (upon request):",
+                eq_desc: "Airport transfer, equipment rental, ski passes, and insurance are not included in the base price. However, when discussing details with our manager, you can additionally book airport transfer, arrange insurance, rent full gear (skis/snowboard, boots, helmet, goggles, guards, suit, gloves) and get daily ski passes.",
+                card_btn: "Book a Lesson",
+                footer_rights: "© 2026 All rights reserved. Gudauri & Georgia Resorts."
+            },
+            pl: {
+                badge: "Gudauri i kurorty Gruzji · Sezon 2026",
+                hero_title: "Lekcje narciarstwa i snowboardu w Gruzji",
+                hero_subtitle: "Zespół certyfikowanych instruktorów. Indywidualne podejście dla dorosłych i dzieci od 6 lat. Rosyjski / Angielski / Polski.",
+                cta_button: "Zarezerwuj przez WhatsApp",
+                pricing_title: "Cennik i Format",
+                pricing_subtitle: "Maksymalna uwaga instruktora i szybki postęp na stoku",
+                card_badge: "Najlepszy wybór",
+                card_title: "Narty lub Snowboard",
+                card_desc: "Cały dzień produktywnej jazdy z profesjonalistą",
+                price_sub: "za cały dzień pracy instruktora",
+                loc_label: "Wybierz lokalizację / kurort:",
+                f1: "Mała grupa do 2 osób",
+                f2: "Od 9:30 do 16:30 (w tym 1 godz. przerwy)",
+                f3: "Dla dorosłych i dzieci od 6 lat",
+                f4: "Lekcje w języku rosyjskim, angielskim i polskim",
+                inc_title: "Co wchodzi w cenę:",
+                inc_desc: "Wyłącznie praca profesjonalnego certyfikowanego instruktora na cały dzień, spersonalizowane wsparcie oraz zdjęcia/wideo podczas zajęć. Naszą główną bazą jest Gudauri, ale na życzenie organizujemy wyjazdy i lekcje w innych lokalizacjach: Tetnuldi, Goderdzi, Kazbeki lub Mestia.",
+                eq_title: "Dodatkowo (na życzenie):",
+                eq_desc: "Cena podstawowa nie obejmuje transferu lotniskowego, wypożyczenia sprzętu, karnetów ani ubezpieczenia. Jednak podczas ustalania szczegółów z menedżerem możesz dodatkowo zamówić transfer z lotniska, ubezpieczenie, pełny zestaw sprzętu (narty/snowboard, buty, kask, gogle, ochraniacze, kombinezon, rękawice) oraz całodobowe karnety.",
+                card_btn: "Zarezerwuj lekcję",
+                footer_rights: "© 2026 Wszelkie prawa zastrzeżone. Gudauri i kurorty Gruzji."
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            ['ru', 'en', 'pl'].forEach(l => {
+                const btn = document.getElementById(lang-${l});
+                if (l === lang) {
+                    btn.className = "px-3 py-1.5 rounded-full transition-all bg-emerald-500 text-white";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-full transition-all text-slate-400 hover:text-white";
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        function setCurrency(cur) {
+            currentCurrency = cur;
+            ['GEL', 'PLN', 'RUB', 'USD'].forEach(c => {
+                const btn = document.getElementById(cur-${c}
