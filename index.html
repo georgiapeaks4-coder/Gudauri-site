@@ -279,4 +279,36 @@
         function setCurrency(cur) {
             currentCurrency = cur;
             ['GEL', 'PLN', 'RUB', 'USD'].forEach(c => {
+                const btn = document.getElementById(cur-${c});
+                if (c === cur) {
+                    btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+                }
+            });
+
+            const val = prices[cur];
+            const parts = val.split(' ');
+            document.getElementById('price-display').innerHTML = ${parts[0]} <span class="text-emerald-400 text-2xl font-semibold" id="currency-display">${parts[1]}</span>;
+        }
+
+        function openWhatsApp(e) {
+            e.preventDefault();
+            const phone = "48515979713";
+            const locationSelect = document.getElementById('location-select').value;
+            
+            let message = "";
+            if (currentLang === 'ru') {
+                message = Здравствуйте! Хочу забронировать инструктора.\n📍 Курорт / Локация: ${locationSelect}\n💱 Валюта тарифа: ${currentCurrency} (${prices[currentCurrency]})\nСвяжитесь со мной для уточнения деталей.;
+            } else if (currentLang === 'pl') {
+                message = Dzień dobry! Chcę zarezerwować instruktora.\n📍 Kurort / Lokalizacja: ${locationSelect}\n💱 Waluta: ${currentCurrency} (${prices[currentCurrency]})\nProszę o kontakt w celu ustalenia szczegółów.;
+            } else {
+                message = Hello! I would like to book an instructor.\n📍 Location / Resort: ${locationSelect}\n💱 Currency: ${currentCurrency} (${prices[currentCurrency]})\nPlease contact me to discuss details.;
+            }
+
+            const url = https://wa.me/${phone}?text=${encodeURIComponent(message)};
+            window.open(url, '_blank');
+        }
+    </script>
+            ['GEL', 'PLN', 'RUB', 'USD'].forEach(c => {
                 const btn = document.getElementById(cur-${c}
