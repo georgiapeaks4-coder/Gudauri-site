@@ -145,7 +145,7 @@
                     <div class="border-t border-slate-800/60 pt-3">
                         <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400/90 mb-1" data-i18n="eq_title">Дополнительно (по запросу):</h4>
                         <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="eq_desc">
-                            В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить спортивную страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.
+                            В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.
                         </p>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                 inc_title: "Что входит в стоимость:",
                 inc_desc: "Только работа профессионального сертифицированного инструктора на полный день, персональное сопровождение и фото/видео во время занятий. Базиция инструктора — Гудаури, но по предварительному запросу возможна организация поездки и обучение в других локациях: Тетнулди, Годердзи, Казбеги или Мэстия.",
                 eq_title: "Дополнительно (по запросу):",
-                eq_desc: "В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить спортивную страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.",
+                eq_desc: "В базовую цену не входят трансфер из аэропорта, аренда снаряжения, ски-пассы и страховка. Однако при обсуждении с менеджером вы можете за дополнительную плату полностью укомплектовать поездку: заказать трансфер, оформить страховку, арендовать лыжи/сноуборд, ботинки, шлем, маску, защиту, очки, комбинезон, перчатки, а также оформить суточные абонементы на подъемники.",
                 card_btn: "Забронировать занятие",
                 footer_rights: "© 2026 Все права защищены. Гудаури и курорты Грузии."
             },
@@ -258,7 +258,7 @@
         function setLanguage(lang) {
             currentLang = lang;
             ['ru', 'en', 'pl'].forEach(l => {
-                const btn = document.getElementById(lang-${l});
+                const btn = document.getElementById(`lang-${l}`);
                 if (l === lang) {
                     btn.className = "px-3 py-1.5 rounded-full transition-all bg-emerald-500 text-white";
                 } else {
@@ -279,7 +279,7 @@
         function setCurrency(cur) {
             currentCurrency = cur;
             ['GEL', 'PLN', 'RUB', 'USD'].forEach(c => {
-                const btn = document.getElementById(cur-${c});
+                const btn = document.getElementById(`cur-${c}`);
                 if (c === cur) {
                     btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white";
                 } else {
@@ -289,7 +289,7 @@
 
             const val = prices[cur];
             const parts = val.split(' ');
-            document.getElementById('price-display').innerHTML = ${parts[0]} <span class="text-emerald-400 text-2xl font-semibold" id="currency-display">${parts[1]}</span>;
+            document.getElementById('price-display').innerHTML = `${parts[0]} <span class="text-emerald-400 text-2xl font-semibold" id="currency-display">${parts[1]}</span>`;
         }
 
         function openWhatsApp(e) {
@@ -299,16 +299,17 @@
             
             let message = "";
             if (currentLang === 'ru') {
-                message = Здравствуйте! Хочу забронировать инструктора.\n📍 Курорт / Локация: ${locationSelect}\n💱 Валюта тарифа: ${currentCurrency} (${prices[currentCurrency]})\nСвяжитесь со мной для уточнения деталей.;
+                message = `Здравствуйте! Хочу забронировать инструктора.\n📍 Курорт / Локация: ${locationSelect}\n💱 Валюта тарифа: ${currentCurrency} (${prices[currentCurrency]})\nСвяжитесь со мной для уточнения деталей.`;
             } else if (currentLang === 'pl') {
-                message = Dzień dobry! Chcę zarezerwować instruktora.\n📍 Kurort / Lokalizacja: ${locationSelect}\n💱 Waluta: ${currentCurrency} (${prices[currentCurrency]})\nProszę o kontakt w celu ustalenia szczegółów.;
+                message = `Dzień dobry! Chcę zarezerwować instruktora.\n📍 Kurort / Lokalizacja: ${locationSelect}\n💱 Waluta: ${currentCurrency} (${prices[currentCurrency]})\nProszę o kontakt w celu ustalenia szczegółów.`;
             } else {
-                message = Hello! I would like to book an instructor.\n📍 Location / Resort: ${locationSelect}\n💱 Currency: ${currentCurrency} (${prices[currentCurrency]})\nPlease contact me to discuss details.;
+                message = `Hello! I would like to book an instructor.\n📍 Location / Resort: ${locationSelect}\n💱 Currency: ${currentCurrency} (${prices[currentCurrency]})\nPlease contact me to discuss details.`;
             }
 
-            const url = https://wa.me/${phone}?text=${encodeURIComponent(message)};
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
     </script>
-            ['GEL', 'PLN', 'RUB', 'USD'].forEach(c => {
-                const btn = document.getElementById(cur-${c}
+</body>
+</html>
+
