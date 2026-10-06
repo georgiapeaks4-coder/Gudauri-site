@@ -267,7 +267,7 @@
         function setLanguage(lang) {
             currentLang = lang;
             ['ru', 'en', 'pl'].forEach(l => {
-                const btn = document.getElementById(`lang-${l}`);
+                const btn = document.getElementById(`btn-${l}`);
                 if (l === lang) {
                     btn.className = "px-3 py-1.5 rounded-full transition-all bg-emerald-500 text-white";
                 } else {
